@@ -344,8 +344,85 @@ def key(verb):
     return "".join(c for c in decomposed if not unicodedata.combining(c))
 
 
+def italic_list(words):
+    words = [f"*{w}*" for w in words]
+    return ", ".join(words[:-1]) + " and " + words[-1]
+
+
+def table(header, rows):
+    lines = ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
+    lines += ["| " + " | ".join(row) + " |" for row in rows]
+    return "\n".join(lines)
+
+
+SUBJECT_REFERENCE = """\
+*Je* becomes *j’* before a vowel or a mute h (*j’ai*, *j’habite*), and *que*
+becomes *qu’* before *il*, *elle* and *on* (*qu’il soit*).
+
+Search the index for any form, such as *serais* or *aille*, to find its verb."""
+
+
+def references():
+    """Each tense's rule, with the exceptions taken from the tables above."""
+    etre_verbs = [verb for verb, data in VERBS.items() if data[3] == "être"]
+    future = [
+        (f"*{verb}*", f"*{data[4]}-*")
+        for verb, data in VERBS.items()
+        if data[4] not in (verb, verb[:-1])
+    ]
+    subjonctif = [
+        (f"*{verb}*", f"*{forms.split()[0]}*", f"*{forms.split()[3]}*")
+        for verb, forms in SUBJONCTIF.items()
+    ]
+    return {
+        "present": """\
+The endings are usually -s, -s, -t, -ons, -ez, -ent (*je dors, il dort*).
+*Pouvoir* and *vouloir* take -x, -x, -t (*je peux*); *ouvrir* takes -e, -es, -e,
+as -er verbs such as *envoyer* do (*j’ouvre, j’envoie*); and *prendre* keeps its d
+(*il prend*). Many of these verbs have one stem for nous and vous and another for
+the other persons (*venir*: *je viens, ils viennent*, but *nous venons*). *Être*,
+*avoir*, *aller* and *faire* are the most irregular, and *vous dites* and *vous
+faites* end in -tes.""",
+        "passe-compose": f"""\
+The présent of *avoir* or *être*, followed by the past participle (*j’ai pris*,
+*je suis venu*). Of these verbs, {italic_list(etre_verbs)} take *être*, and
+their past participle agrees with the subject like an adjective (*elle est
+partie*, *nous sommes allés*). With *avoir*, the past participle does not agree
+with the subject.""",
+        "imparfait": """\
+The stem is the nous form of the présent without -ons (*nous buvons* → *buv-*),
+and the endings are -ais, -ais, -ait, -ions, -iez, -aient. The one exception is
+*être*, whose stem is *ét-* (*j’étais*). A stem ending in i or y keeps it before
+-ions and -iez (*nous riions*, *nous voyions*).""",
+        "futur": """\
+The stem is the infinitive, without the final e of a verb in -re (*dormir-*,
+*prendr-*), and the endings are -ai, -as, -a, -ons, -ez, -ont. Every stem ends in
+r, including the irregular ones:
+
+"""
+        + table(["verb", "stem"], future),
+        "conditionnel": """\
+The stem of the futur simple with the endings of the imparfait: -ais, -ais, -ait,
+-ions, -iez, -aient (*je serais*, *nous irions*).""",
+        "subjonctif": """\
+For je, tu, il and ils, the stem is the ils form of the présent without -ent (*ils
+prennent* → *prenn-*), with the endings -e, -es, -e, -ent; nous and vous are as in
+the imparfait (*nous prenions*). The irregular ones:
+
+"""
+        + table(["verb", "que je", "que nous"], subjonctif),
+        "imperatif": """\
+The tu, nous and vous forms of the présent, without their pronouns (*prends,
+prenons, prenez*). A tu form in -es loses its s, as does *tu vas* (*ouvre*,
+*envoie*, *va*). *Être*, *avoir*, *savoir* and *vouloir* take forms like those of
+the subjonctif (*sois*, *aie*, *sache*, *veuille*). *Pouvoir* has no impératif,
+and those of *devoir* and *naître* are not in use.""",
+    }
+
+
 def bundle():
     decks = {slug: [] for slug, _ in DECKS}
+    tense_references = references()
     names = dict(DECKS)
     for verb in VERBS:
         english = VERBS[verb][0]
@@ -365,12 +442,14 @@ def bundle():
             "title": "French",
             "language": "fr",
             "characters": "à â ç é è ê ë î ï ô ù û œ",
+            "reference": SUBJECT_REFERENCE,
         },
         "decks": [
             {
                 "slug": slug,
                 "title": f"Irregular verbs: {name}",
                 "public": False,
+                "reference": tense_references[slug],
                 "cards": decks[slug],
             }
             for slug, name in DECKS
