@@ -206,6 +206,9 @@ IMPERATIF = {
 }
 NO_IMPERATIF = {"pouvoir", "devoir", "naître"}  # none, or not in use
 IMPARFAIT_STEM = {"être": "ét"}
+# Other forms of the présent that are also right: je puis is the formal form of je
+# peux, which survives in puis-je.
+PRESENT_ALTERNATIVES = {"pouvoir": [["puis"], [], [], [], [], []]}
 
 PERSONS = ["je", "tu", "il/elle/on", "nous", "vous", "ils/elles"]
 ENDINGS = {
@@ -268,7 +271,7 @@ def tenses(verb):
     imparfait_stem = IMPARFAIT_STEM.get(verb, nous_stem)
     imparfait = [imparfait_stem + e for e in ENDINGS["imparfait"]]
 
-    yield "present", answers(present), ""
+    yield "present", answers(present, alternatives=PRESENT_ALTERNATIVES.get(verb)), ""
 
     aux = AUXILIARY[auxiliary]
     if auxiliary == "avoir":
