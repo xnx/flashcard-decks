@@ -146,7 +146,9 @@ def symbols():
             line(20, Y, 95, Y), line(95, Y, 150, 55), line(145, Y, 220, Y)
         ),
         "diode": svg(diode()),
-        "led": svg(diode(), arrow(124, 30, 142, 12), arrow(138, 36, 156, 18)),
+        # The arrows (the light) start clear of the diode's bar, which ends at
+        # (141, 38).
+        "led": svg(diode(), arrow(112, 30, 130, 12), arrow(126, 34, 144, 16)),
         "resistor": svg(leads(85, 155), resistor_box()),
         "variable-resistor": svg(
             leads(85, 155), resistor_box(), arrow(90, 92, 152, 26)
