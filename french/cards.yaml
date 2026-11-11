@@ -12,16 +12,18 @@ subject:
     Search the index for any form, such as *serais* or *aille*, to find its verb.
 decks:
 - slug: present
-  title: 'Irregular verbs: présent'
+  title: 'Verbs: présent'
   public: false
   reference: |-
-    The endings are usually -s, -s, -t, -ons, -ez, -ent (*je dors, il dort*).
-    *Pouvoir* and *vouloir* take -x, -x, -t (*je peux*); *ouvrir* takes -e, -es, -e,
-    as -er verbs such as *envoyer* do (*j’ouvre, j’envoie*); and *prendre* keeps its d
-    (*il prend*). Many of these verbs have one stem for nous and vous and another for
-    the other persons (*venir*: *je viens, ils viennent*, but *nous venons*). *Être*,
-    *avoir*, *aller* and *faire* are the most irregular, and *vous dites* and *vous
-    faites* end in -tes.
+    A regular -er verb takes the endings -e, -es, -e, -ons, -ez, -ent (*je parle*), as
+    do *ouvrir* (*j’ouvre*) and *envoyer* (*j’envoie*). A regular -ir verb takes -s,
+    -s, -t, -ons, -ez, -ent, with -iss- before the endings of the plural (*je finis,
+    nous finissons*). Most irregular verbs take -s, -s, -t too (*je dors, il dort*), but
+    *pouvoir* and *vouloir* take -x, -x, -t (*je peux*), and *prendre* keeps its d (*il
+    prend*). Many have one stem for nous and vous and another for the other persons
+    (*venir*: *je viens, ils viennent*, but *nous venons*). *Être*, *avoir*, *aller*
+    and *faire* are the most irregular, and *vous dites* and *vous faites* end in
+    -tes. *Falloir* is used only with *il* (*il faut*).
   cards:
   - key: etre
     prompt: |-
@@ -381,8 +383,39 @@ decks:
     - {label: nous, text: rions}
     - {label: vous, text: riez}
     - {label: ils/elles, text: rient}
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      présent
+    answers:
+    - {label: je, text: parle}
+    - {label: tu, text: parles}
+    - {label: il/elle/on, text: parle}
+    - {label: nous, text: parlons}
+    - {label: vous, text: parlez}
+    - {label: ils/elles, text: parlent}
+    notes: 'A regular -er verb: the pattern of most French verbs.'
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      présent
+    answers:
+    - {label: je, text: finis}
+    - {label: tu, text: finis}
+    - {label: il/elle/on, text: finit}
+    - {label: nous, text: finissons}
+    - {label: vous, text: finissez}
+    - {label: ils/elles, text: finissent}
+    notes: A regular -ir verb, whose plural adds -iss- to the stem (nous finissons).
+  - key: falloir
+    prompt: |-
+      falloir (to be necessary)
+      présent
+    answers:
+    - {label: il, text: faut}
+    notes: 'Used only with il: il faut, it is necessary, one must.'
 - slug: passe-compose
-  title: 'Irregular verbs: passé composé'
+  title: 'Verbs: passé composé'
   public: false
   reference: |-
     The présent of *avoir* or *être*, followed by the past participle (*j’ai pris*,
@@ -853,8 +886,39 @@ decks:
     - {label: vous, text: avez ri}
     - {label: ils/elles, text: ont ri}
     notes: 'Auxiliary: avoir; past participle: ri.'
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      passé composé
+    answers:
+    - {label: j’, text: ai parlé}
+    - {label: tu, text: as parlé}
+    - {label: il/elle/on, text: a parlé}
+    - {label: nous, text: avons parlé}
+    - {label: vous, text: avez parlé}
+    - {label: ils/elles, text: ont parlé}
+    notes: 'Auxiliary: avoir; past participle: parlé.'
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      passé composé
+    answers:
+    - {label: j’, text: ai fini}
+    - {label: tu, text: as fini}
+    - {label: il/elle/on, text: a fini}
+    - {label: nous, text: avons fini}
+    - {label: vous, text: avez fini}
+    - {label: ils/elles, text: ont fini}
+    notes: 'Auxiliary: avoir; past participle: fini.'
+  - key: falloir
+    prompt: |-
+      falloir (to be necessary)
+      passé composé
+    answers:
+    - {label: il, text: a fallu}
+    notes: 'Auxiliary: avoir; past participle: fallu.'
 - slug: imparfait
-  title: 'Irregular verbs: imparfait'
+  title: 'Verbs: imparfait'
   public: false
   reference: |-
     The stem is the nous form of the présent without -ons (*nous buvons* → *buv-*),
@@ -1246,8 +1310,39 @@ decks:
     - {label: vous, text: riiez}
     - {label: ils/elles, text: riaient}
     notes: 'Stem: ri-, from nous rions in the présent.'
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      imparfait
+    answers:
+    - {label: je, text: parlais}
+    - {label: tu, text: parlais}
+    - {label: il/elle/on, text: parlait}
+    - {label: nous, text: parlions}
+    - {label: vous, text: parliez}
+    - {label: ils/elles, text: parlaient}
+    notes: 'Stem: parl-, from nous parlons in the présent.'
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      imparfait
+    answers:
+    - {label: je, text: finissais}
+    - {label: tu, text: finissais}
+    - {label: il/elle/on, text: finissait}
+    - {label: nous, text: finissions}
+    - {label: vous, text: finissiez}
+    - {label: ils/elles, text: finissaient}
+    notes: 'Stem: finiss-, from nous finissons in the présent.'
+  - key: falloir
+    prompt: |-
+      falloir (to be necessary)
+      imparfait
+    answers:
+    - {label: il, text: fallait}
+    notes: 'Stem: fall-.'
 - slug: futur
-  title: 'Irregular verbs: futur simple'
+  title: 'Verbs: futur simple'
   public: false
   reference: |-
     The stem is the infinitive, without the final e of a verb in -re (*dormir-*,
@@ -1271,6 +1366,7 @@ decks:
     | *mourir* | *mourr-* |
     | *recevoir* | *recevr-* |
     | *envoyer* | *enverr-* |
+    | *falloir* | *faudr-* |
   cards:
   - key: etre
     prompt: |-
@@ -1680,8 +1776,39 @@ decks:
     - {label: vous, text: rirez}
     - {label: ils/elles, text: riront}
     notes: 'Stem: the infinitive without its final e, rir-.'
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      futur simple
+    answers:
+    - {label: je, text: parlerai}
+    - {label: tu, text: parleras}
+    - {label: il/elle/on, text: parlera}
+    - {label: nous, text: parlerons}
+    - {label: vous, text: parlerez}
+    - {label: ils/elles, text: parleront}
+    notes: 'Stem: the infinitive, parler-.'
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      futur simple
+    answers:
+    - {label: je, text: finirai}
+    - {label: tu, text: finiras}
+    - {label: il/elle/on, text: finira}
+    - {label: nous, text: finirons}
+    - {label: vous, text: finirez}
+    - {label: ils/elles, text: finiront}
+    notes: 'Stem: the infinitive, finir-.'
+  - key: falloir
+    prompt: |-
+      falloir (to be necessary)
+      futur simple
+    answers:
+    - {label: il, text: faudra}
+    notes: 'Stem: faudr- (irregular).'
 - slug: conditionnel
-  title: 'Irregular verbs: conditionnel présent'
+  title: 'Verbs: conditionnel présent'
   public: false
   reference: |-
     The stem of the futur simple with the endings of the imparfait: -ais, -ais, -ait,
@@ -2105,13 +2232,45 @@ decks:
     - {label: vous, text: ririez}
     - {label: ils/elles, text: riraient}
     notes: 'Stem: the infinitive without its final e, rir-. The endings are those of the imparfait.'
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      conditionnel présent
+    answers:
+    - {label: je, text: parlerais}
+    - {label: tu, text: parlerais}
+    - {label: il/elle/on, text: parlerait}
+    - {label: nous, text: parlerions}
+    - {label: vous, text: parleriez}
+    - {label: ils/elles, text: parleraient}
+    notes: 'Stem: the infinitive, parler-. The endings are those of the imparfait.'
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      conditionnel présent
+    answers:
+    - {label: je, text: finirais}
+    - {label: tu, text: finirais}
+    - {label: il/elle/on, text: finirait}
+    - {label: nous, text: finirions}
+    - {label: vous, text: finiriez}
+    - {label: ils/elles, text: finiraient}
+    notes: 'Stem: the infinitive, finir-. The endings are those of the imparfait.'
+  - key: falloir
+    prompt: |-
+      falloir (to be necessary)
+      conditionnel présent
+    answers:
+    - {label: il, text: faudrait}
+    notes: 'Stem: faudr- (irregular). The endings are those of the imparfait.'
 - slug: subjonctif
-  title: 'Irregular verbs: subjonctif présent'
+  title: 'Verbs: subjonctif présent'
   public: false
   reference: |-
     For je, tu, il and ils, the stem is the ils form of the présent without -ent (*ils
     prennent* → *prenn-*), with the endings -e, -es, -e, -ent; nous and vous are as in
-    the imparfait (*nous prenions*). The irregular ones:
+    the imparfait (*nous prenions*). *Falloir* has only *qu’il faille*. The other
+    irregular ones:
 
     | verb | que je | que nous |
     |---|---|---|
@@ -2507,15 +2666,46 @@ decks:
     - {label: que vous, text: riiez}
     - {label: qu’ils/elles, text: rient}
     notes: 'Stem: ri-, from ils rient; nous and vous as in the imparfait.'
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      subjonctif présent
+    answers:
+    - {label: que je, text: parle}
+    - {label: que tu, text: parles}
+    - {label: qu’il/elle/on, text: parle}
+    - {label: que nous, text: parlions}
+    - {label: que vous, text: parliez}
+    - {label: qu’ils/elles, text: parlent}
+    notes: 'Stem: parl-, from ils parlent; nous and vous as in the imparfait.'
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      subjonctif présent
+    answers:
+    - {label: que je, text: finisse}
+    - {label: que tu, text: finisses}
+    - {label: qu’il/elle/on, text: finisse}
+    - {label: que nous, text: finissions}
+    - {label: que vous, text: finissiez}
+    - {label: qu’ils/elles, text: finissent}
+    notes: 'Stem: finiss-, from ils finissent; nous and vous as in the imparfait.'
+  - key: falloir
+    prompt: |-
+      falloir (to be necessary)
+      subjonctif présent
+    answers:
+    - {label: qu’il, text: faille}
+    notes: Irregular.
 - slug: imperatif
-  title: 'Irregular verbs: impératif'
+  title: 'Verbs: impératif'
   public: false
   reference: |-
     The tu, nous and vous forms of the présent, without their pronouns (*prends,
     prenons, prenez*). A tu form in -es loses its s, as does *tu vas* (*ouvre*,
     *envoie*, *va*). *Être*, *avoir*, *savoir* and *vouloir* take forms like those of
-    the subjonctif (*sois*, *aie*, *sache*, *veuille*). *Pouvoir* has no impératif,
-    and those of *devoir* and *naître* are not in use.
+    the subjonctif (*sois*, *aie*, *sache*, *veuille*). *Pouvoir* and *falloir* have
+    no impératif, and those of *devoir* and *naître* are not in use.
   cards:
   - key: etre
     prompt: |-
@@ -2756,3 +2946,20 @@ decks:
     - {label: (tu), text: ris}
     - {label: (nous), text: rions}
     - {label: (vous), text: riez}
+  - key: parler
+    prompt: |-
+      parler (to speak)
+      impératif
+    answers:
+    - {label: (tu), text: parle}
+    - {label: (nous), text: parlons}
+    - {label: (vous), text: parlez}
+    notes: No -s in the tu form, as for -er verbs.
+  - key: finir
+    prompt: |-
+      finir (to finish)
+      impératif
+    answers:
+    - {label: (tu), text: finis}
+    - {label: (nous), text: finissons}
+    - {label: (vous), text: finissez}

@@ -139,11 +139,20 @@ def symbols():
             second,
             line(second_end, Y, 220, Y),
         ),
+        # A switch's lever is hinged at the end of the left-hand wire; the dot is
+        # the contact at the start of the right-hand one, which the lever of a
+        # closed switch rests on (as WJEC's symbols draw it).
         "open-switch": svg(
-            line(20, Y, 95, Y), line(95, Y, 140, 35), line(145, Y, 220, Y)
+            line(20, Y, 95, Y),
+            line(95, Y, 140, 35),
+            line(145, Y, 220, Y),
+            circle(145, Y, 3, INK),
         ),
         "closed-switch": svg(
-            line(20, Y, 95, Y), line(95, Y, 150, 55), line(145, Y, 220, Y)
+            line(20, Y, 95, Y),
+            line(95, Y, 155, 54.5),
+            line(145, Y, 220, Y),
+            circle(145, Y, 3, INK),
         ),
         "diode": svg(diode()),
         # The arrows (the light) start clear of the diode's bar, which ends at

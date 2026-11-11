@@ -1,5 +1,6 @@
 """Writes cards.yaml, beside this script: a flashdeck bundle of 32 common irregular
-French verbs in seven tenses, with one deck per tense.
+French verbs, the regular parler and finir, and the impersonal falloir, in seven
+tenses (falloir has no impératif), with one deck per tense.
 
 The forms are built from each verb's présent, past participle, auxiliary and future
 stem by the usual rules, with the exceptions listed below.
@@ -186,6 +187,48 @@ VERBS = {
         "naîtr",
     ),
     "rire": ("to laugh", "ris ris rit rions riez rient", "ri", "avoir", "rir"),
+    # Two regular verbs: the patterns of most verbs in -er and in -ir.
+    "parler": (
+        "to speak",
+        "parle parles parle parlons parlez parlent",
+        "parlé",
+        "avoir",
+        "parler",
+    ),
+    "finir": (
+        "to finish",
+        "finis finis finit finissons finissez finissent",
+        "fini",
+        "avoir",
+        "finir",
+    ),
+}
+REGULAR = {
+    "parler": "A regular -er verb: the pattern of most French verbs.",
+    "finir": "A regular -ir verb, whose plural adds -iss- to the stem (nous "
+    "finissons).",
+}
+
+# Verbs used only with il, and their forms and notes in each tense (there is no
+# impératif).
+IMPERSONAL = {
+    "falloir": (
+        "to be necessary",
+        {
+            "present": (
+                "faut",
+                "Used only with il: il faut, it is necessary, one must.",
+            ),
+            "passe-compose": ("a fallu", "Auxiliary: avoir; past participle: fallu."),
+            "imparfait": ("fallait", "Stem: fall-."),
+            "futur": ("faudra", "Stem: faudr- (irregular)."),
+            "conditionnel": (
+                "faudrait",
+                "Stem: faudr- (irregular). The endings are those of the imparfait.",
+            ),
+            "subjonctif": ("faille", "Irregular."),
+        },
+    ),
 }
 
 # Exceptions to the rules.
@@ -271,7 +314,11 @@ def tenses(verb):
     imparfait_stem = IMPARFAIT_STEM.get(verb, nous_stem)
     imparfait = [imparfait_stem + e for e in ENDINGS["imparfait"]]
 
-    yield "present", answers(present, alternatives=PRESENT_ALTERNATIVES.get(verb)), ""
+    yield (
+        "present",
+        answers(present, alternatives=PRESENT_ALTERNATIVES.get(verb)),
+        REGULAR.get(verb, ""),
+    )
 
     aux = AUXILIARY[auxiliary]
     if auxiliary == "avoir":
@@ -369,20 +416,22 @@ def references():
         (f"*{verb}*", f"*{data[4]}-*")
         for verb, data in VERBS.items()
         if data[4] not in (verb, verb[:-1])
-    ]
+    ] + [("*falloir*", "*faudr-*")]
     subjonctif = [
         (f"*{verb}*", f"*{forms.split()[0]}*", f"*{forms.split()[3]}*")
         for verb, forms in SUBJONCTIF.items()
     ]
     return {
         "present": """\
-The endings are usually -s, -s, -t, -ons, -ez, -ent (*je dors, il dort*).
-*Pouvoir* and *vouloir* take -x, -x, -t (*je peux*); *ouvrir* takes -e, -es, -e,
-as -er verbs such as *envoyer* do (*j’ouvre, j’envoie*); and *prendre* keeps its d
-(*il prend*). Many of these verbs have one stem for nous and vous and another for
-the other persons (*venir*: *je viens, ils viennent*, but *nous venons*). *Être*,
-*avoir*, *aller* and *faire* are the most irregular, and *vous dites* and *vous
-faites* end in -tes.""",
+A regular -er verb takes the endings -e, -es, -e, -ons, -ez, -ent (*je parle*), as
+do *ouvrir* (*j’ouvre*) and *envoyer* (*j’envoie*). A regular -ir verb takes -s,
+-s, -t, -ons, -ez, -ent, with -iss- before the endings of the plural (*je finis,
+nous finissons*). Most irregular verbs take -s, -s, -t too (*je dors, il dort*), but
+*pouvoir* and *vouloir* take -x, -x, -t (*je peux*), and *prendre* keeps its d (*il
+prend*). Many have one stem for nous and vous and another for the other persons
+(*venir*: *je viens, ils viennent*, but *nous venons*). *Être*, *avoir*, *aller*
+and *faire* are the most irregular, and *vous dites* and *vous faites* end in
+-tes. *Falloir* is used only with *il* (*il faut*).""",
         "passe-compose": f"""\
 The présent of *avoir* or *être*, followed by the past participle (*j’ai pris*,
 *je suis venu*). Of these verbs, {italic_list(etre_verbs)} take *être*, and
@@ -407,7 +456,8 @@ The stem of the futur simple with the endings of the imparfait: -ais, -ais, -ait
         "subjonctif": """\
 For je, tu, il and ils, the stem is the ils form of the présent without -ent (*ils
 prennent* → *prenn-*), with the endings -e, -es, -e, -ent; nous and vous are as in
-the imparfait (*nous prenions*). The irregular ones:
+the imparfait (*nous prenions*). *Falloir* has only *qu’il faille*. The other
+irregular ones:
 
 """
         + table(["verb", "que je", "que nous"], subjonctif),
@@ -415,8 +465,8 @@ the imparfait (*nous prenions*). The irregular ones:
 The tu, nous and vous forms of the présent, without their pronouns (*prends,
 prenons, prenez*). A tu form in -es loses its s, as does *tu vas* (*ouvre*,
 *envoie*, *va*). *Être*, *avoir*, *savoir* and *vouloir* take forms like those of
-the subjonctif (*sois*, *aie*, *sache*, *veuille*). *Pouvoir* has no impératif,
-and those of *devoir* and *naître* are not in use.""",
+the subjonctif (*sois*, *aie*, *sache*, *veuille*). *Pouvoir* and *falloir* have
+no impératif, and those of *devoir* and *naître* are not in use.""",
     }
 
 
@@ -435,6 +485,17 @@ def bundle():
             if note:
                 card["notes"] = note
             decks[slug].append(card)
+    for verb, (english, forms) in IMPERSONAL.items():
+        for slug, (form, note) in forms.items():
+            label = "qu’il" if slug == "subjonctif" else "il"
+            decks[slug].append(
+                {
+                    "key": key(verb),
+                    "prompt": f"{verb} ({english})\n{names[slug]}",
+                    "answers": [{"label": label, "text": form}],
+                    "notes": note,
+                }
+            )
     return {
         "format": "flashdeck/1",
         "subject": {
@@ -447,7 +508,7 @@ def bundle():
         "decks": [
             {
                 "slug": slug,
-                "title": f"Irregular verbs: {name}",
+                "title": f"Verbs: {name}",
                 "public": False,
                 "reference": tense_references[slug],
                 "cards": decks[slug],
