@@ -1,0 +1,22 @@
+[project]
+name = "flashcard-decks"
+version = "0"
+description = "Decks of flashcards, as bundles for django-flashdeck."
+requires-python = ">=3.12"
+# The app that reads the bundles: its bundle import checks them, and its
+# flashdeck.manifest writes them.
+dependencies = ["django-flashdeck>=0.1.0"]
+
+[dependency-groups]
+dev = ["ruff"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]  # line length is left to `ruff format`

@@ -6,8 +6,8 @@ The symbols are those of Appendix 8 of Pearson's specification for International
 GCSE Physics, drawn in the same way (as WJEC's are, too), with AQA's closed
 switch: AQA's list is a subset of these.
 
-    uv run python decks/physics/make_circuit_symbols.py
-    uv run python manage.py flashdeck_import decks/physics --update
+    uv run python physics/make_circuit_symbols.py
+    uv run python check.py
 """
 
 import math

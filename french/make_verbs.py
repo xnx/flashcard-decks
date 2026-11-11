@@ -5,8 +5,8 @@ tenses (falloir has no impératif), with one deck per tense.
 The forms are built from each verb's présent, past participle, auxiliary and future
 stem by the usual rules, with the exceptions listed below.
 
-    uv run python decks/french/make_verbs.py
-    uv run python manage.py flashdeck_import decks/french
+    uv run python french/make_verbs.py
+    uv run python check.py
 """
 
 import re
