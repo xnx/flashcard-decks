@@ -4,10 +4,11 @@ subject: {slug: physics, title: Physics, language: en}
 decks:
 - slug: circuit-symbols
   title: Circuit symbols
-  description: The standard circuit symbols of GCSE Physics.
+  description: The circuit symbols of GCSE Physics.
   public: true
   reference: In a circuit diagram, wires are drawn as straight lines. A dot marks where wires
-    are joined; wires that cross without a dot are not joined.
+    are joined; wires that cross without a dot are not joined. These are the symbols of Pearson's
+    (Edexcel) specification and WJEC's; AQA's are among them.
   cards:
   - key: cell
     prompt: Name this circuit symbol.
@@ -23,8 +24,10 @@ decks:
     image_alt: A circuit symbol
     answers:
     - text: battery
-      alternatives: [a battery, an battery]
-    notes: Two or more cells joined together.
+      alternatives: [a battery, an battery, battery of cells, a battery of cells, an battery
+          of cells]
+    notes: Two or more cells joined together. The dashed line means that there can be more
+      cells in between; it is sometimes drawn as a solid line.
   - key: open-switch
     prompt: Name this circuit symbol.
     image: images/open-switch.svg
@@ -60,7 +63,7 @@ decks:
       alternatives: [a light-emitting diode, an light-emitting diode, LED, a LED, an LED,
         light emitting diode, a light emitting diode, an light emitting diode]
     notes: A diode that gives out light when a current flows through it. It is sometimes drawn
-      without the circle.
+      inside a circle.
   - key: resistor
     prompt: Name this circuit symbol.
     image: images/resistor.svg
@@ -95,7 +98,7 @@ decks:
       alternatives: [a light-dependent resistor, an light-dependent resistor, LDR, a LDR,
         an LDR, light dependent resistor, a light dependent resistor, an light dependent resistor]
     notes: A resistor whose resistance falls as the light on it gets brighter. It is sometimes
-      drawn without the circle.
+      drawn inside a circle.
   - key: lamp
     prompt: Name this circuit symbol.
     image: images/lamp.svg
@@ -111,8 +114,9 @@ decks:
     image_alt: A circuit symbol
     answers:
     - text: fuse
-      alternatives: [a fuse, an fuse]
-    notes: Melts, breaking the circuit, if the current becomes too large.
+      alternatives: [a fuse, an fuse, circuit breaker, a circuit breaker, an circuit breaker]
+    notes: Melts, breaking the circuit, if the current becomes too large. A circuit breaker,
+      which does the same job but can be reset, has the same symbol.
   - key: voltmeter
     prompt: Name this circuit symbol.
     image: images/voltmeter.svg
@@ -130,3 +134,129 @@ decks:
     - text: ammeter
       alternatives: [a ammeter, an ammeter]
     notes: Measures the current, so it is connected in series.
+  - key: junction
+    prompt: Name this circuit symbol.
+    image: images/junction.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: junction
+      alternatives: [a junction, an junction, junction of conductors, a junction of conductors,
+        an junction of conductors, junction of wires, a junction of wires, an junction of
+          wires, joined wires, a joined wires, an joined wires, wires joined, a wires joined,
+        an wires joined, connected wires, a connected wires, an connected wires, T-junction,
+        a T-junction, an T-junction]
+    notes: The dot shows that the wires are joined.
+  - key: crossing-wires
+    prompt: Name this circuit symbol.
+    image: images/crossing-wires.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: wires crossing with no connection
+      alternatives: [a wires crossing with no connection, an wires crossing with no connection,
+        crossing wires, a crossing wires, an crossing wires, wires crossing, a wires crossing,
+        an wires crossing, conductors crossing, a conductors crossing, an conductors crossing,
+        conductors crossing with no connection, a conductors crossing with no connection,
+        an conductors crossing with no connection, 'wires crossing, not joined', 'a wires
+          crossing, not joined', 'an wires crossing, not joined', wires not joined, a wires
+          not joined, an wires not joined, not joined, a not joined, an not joined, no connection,
+        a no connection, an no connection]
+    notes: Wires that cross without a dot are not joined.
+  - key: dc-supply
+    prompt: Name this circuit symbol.
+    image: images/dc-supply.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: d.c. power supply
+      alternatives: [a d.c. power supply, an d.c. power supply, dc power supply, a dc power
+          supply, an dc power supply, d.c. supply, a d.c. supply, an d.c. supply, dc supply,
+        a dc supply, an dc supply, direct current power supply, a direct current power supply,
+        an direct current power supply, direct current supply, a direct current supply, an
+          direct current supply, power supply (d.c.), a power supply (d.c.), an power supply
+          (d.c.), positive and negative terminals, a positive and negative terminals, an positive
+          and negative terminals]
+    notes: A supply of direct current, which flows one way only, out of the positive (+) terminal
+      and round the circuit to the negative (−) one.
+  - key: ac-supply
+    prompt: Name this circuit symbol.
+    image: images/ac-supply.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: a.c. power supply
+      alternatives: [a a.c. power supply, an a.c. power supply, ac power supply, a ac power
+          supply, an ac power supply, a.c. supply, a a.c. supply, an a.c. supply, ac supply,
+        a ac supply, an ac supply, alternating current power supply, a alternating current
+          power supply, an alternating current power supply, alternating current supply, a
+          alternating current supply, an alternating current supply, power supply (a.c.),
+        a power supply (a.c.), an power supply (a.c.)]
+    notes: A supply of alternating current, which changes direction many times a second (50
+      times a second for the mains in the UK).
+  - key: heater
+    prompt: Name this circuit symbol.
+    image: images/heater.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: heater
+      alternatives: [a heater, an heater, heating element, a heating element, an heating element,
+        electric heater, a electric heater, an electric heater]
+    notes: Transfers energy to its surroundings by heating them.
+  - key: motor
+    prompt: Name this circuit symbol.
+    image: images/motor.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: motor
+      alternatives: [a motor, an motor, electric motor, a electric motor, an electric motor]
+    notes: Turns when a current flows through it.
+  - key: generator
+    prompt: Name this circuit symbol.
+    image: images/generator.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: generator
+      alternatives: [a generator, an generator, dynamo, a dynamo, an dynamo]
+    notes: Produces a potential difference (voltage) when it is turned.
+  - key: loudspeaker
+    prompt: Name this circuit symbol.
+    image: images/loudspeaker.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: loudspeaker
+      alternatives: [a loudspeaker, an loudspeaker, speaker, a speaker, an speaker]
+    notes: Turns electrical signals into sound.
+  - key: microphone
+    prompt: Name this circuit symbol.
+    image: images/microphone.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: microphone
+      alternatives: [a microphone, an microphone, mic, a mic, an mic]
+    notes: Turns sound into electrical signals.
+  - key: bell
+    prompt: Name this circuit symbol.
+    image: images/bell.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: electric bell
+      alternatives: [a electric bell, an electric bell, bell, a bell, an bell]
+    notes: Rings when a current flows through it.
+  - key: earth
+    prompt: Name this circuit symbol.
+    image: images/earth.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: earth
+      alternatives: [a earth, an earth, ground, a ground, an ground, earth or ground, a earth
+          or ground, an earth or ground, earth connection, a earth connection, an earth connection]
+    notes: A connection to the ground, which keeps a metal case safe to touch if a fault makes
+      it live.
+  - key: transformer
+    prompt: Name this circuit symbol.
+    image: images/transformer.svg
+    image_alt: A circuit symbol
+    answers:
+    - text: transformer
+      alternatives: [a transformer, an transformer, step-up transformer, a step-up transformer,
+        an step-up transformer, step-down transformer, a step-down transformer, an step-down
+          transformer]
+    notes: 'Two coils wound on an iron core. It changes the size of an alternating potential
+      difference (voltage): up, in a step-up transformer, or down, in a step-down one.'
