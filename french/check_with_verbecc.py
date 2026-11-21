@@ -1,6 +1,6 @@
-"""Compares the French verbs bundle (cards.yaml) with the conjugations of verbecc,
-a second source (whose tables come from Verbiste), in both directions: every model
-answer should be one of verbecc's forms, and every verbecc form an accepted
+"""Compares the verb decks of the French bundle (cards.yaml) with the conjugations of
+verbecc, a second source (whose tables come from Verbiste), in both directions: every
+model answer should be one of verbecc's forms, and every verbecc form an accepted
 answer. verbecc has no forms for falloir (only "-"), so its cards are reported.
 
     uv run --with verbecc python french/check_with_verbecc.py french/cards.yaml
@@ -49,6 +49,8 @@ def main(path):
     cache = {}
     problems = checked = 0
     for deck in data["decks"]:
+        if deck["slug"] not in TENSES:  # such as the pronouns
+            continue
         mood, tense = TENSES[deck["slug"]]
         slots = IMPERATIVE_SLOTS if deck["slug"] == "imperatif" else SLOTS
         for card in deck["cards"]:

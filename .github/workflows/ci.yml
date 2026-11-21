@@ -18,7 +18,7 @@ jobs:
       - run: uv run ruff check . && uv run ruff format --check .
       - name: The bundles are what their generators write
         run: |
-          uv run python french/make_verbs.py
+          uv run python french/make_french.py
           uv run python physics/make_circuit_symbols.py
           git status --porcelain
           test -z "$(git status --porcelain)"
